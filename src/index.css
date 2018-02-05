@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+body {
+	display: flex;
+	/* align-content: center;
+	align-items: center; */
+	justify-content: center;
+	color: beige;
+	background-color: black;
+	padding: 20px;
+}
+
+.App {
+	
+	border: 1px solid grey;
+	background-color: #151B1E;
+
+	width: 400px;
+	height: 630px;
+}
