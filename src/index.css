@@ -20,4 +20,61 @@ body {
 
 	width: 400px;
 	height: 630px;
+
+	padding: 10px;
+}
+
+.tab_comp {
+	flex: 1;
+	/* background-color: #FFF; */
+	height: 100%;
+}
+.tab_headers {
+	display: flex;
+	flex-direction: row;
+	height: 8%;
+    justify-content: space-around;
+}
+.tab {
+	justify-content: center;
+    align-items: center;
+    display: flex;
+	border: 1px solid #EE0831;
+	color: #EE0831;
+	height: 40px;
+	width: 130px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.tab:not(:last-child){
+	margin-right: 5px;		
+	/* background-color: yellow; */
+}
+.tab.active {
+	border: 1px solid #EE0831;
+	color: #FFF;
+	background-color: #EE0831;
+}
+.tab_divder {
+	height: 1px;
+	flex: 1;
+	background-color: #FFF;
+	margin: 5px 0px;
+}
+.tab_bodies {
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.tab_body {
+	display: none;
+	height: 92%;
+	/* overflow-y: scroll; */
+}
+.tab_body.active {
+	display: flex;
+}
+.tab_header_text {
+	text-transform: uppercase;
 }
