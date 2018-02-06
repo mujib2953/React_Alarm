@@ -2,14 +2,20 @@
  * @Author: Mujib Ansari 
  * @Date: 2018-02-05 18:18:03 
  * @Last Modified by: Mujib Ansari
- * @Last Modified time: 2018-02-05 21:15:28
+ * @Last Modified time: 2018-02-06 09:11:10
  */
 import React from 'react';
 
+// --- common components
 import { 
     TabHeader,
     TabBody
 } from "./";
+
+import Alarm from '../Alarm';
+import Clock from '../Clock';
+import Timer from '../Timer';
+import Stopwatch from '../Stopwatch';
 
 class TabComp extends React.Component {
 
@@ -18,12 +24,41 @@ class TabComp extends React.Component {
         this.state = {
             activeTab: '1'
         }
+        this.tabsData = [
+            'Alarm',
+            'Clock',
+            'Timer',
+            'Stopwatch'
+        ];
     }
 
 
     onTabChange = ( e ) => {
         console.log(e.target.getAttribute('tabIndex') );
         this.setState({ activeTab: e.target.getAttribute('tabIndex') })
+    }
+
+    renderTabHeader = () => {
+        
+        const renderElm = [];
+
+        for( var i in this.tabsData ) {
+            renderElm.push(
+                <TabHeader
+                    pState={this.state}
+                    tabIndex= {i}
+                    onClick={this.onTabChange}
+                >
+                    <div
+                        tabIndex={i}
+                        className="tab_header_text"
+                    >
+                        { this.tabsData[ i ] }
+                    </div>
+                </TabHeader>
+            );
+        }
+        return renderElm;
     }
 
     render() {
@@ -85,25 +120,25 @@ class TabComp extends React.Component {
                         pState={this.state}
                         tabIndex="1"
                     >
-                        <h1>Tab 1</h1>
+                        <Alarm />
                     </TabBody>
                     <TabBody
                         pState={this.state}
                         tabIndex="2"
                     >
-                        <h1>Tab 2</h1>
+                        <Clock />
                     </TabBody>
                     <TabBody
                         pState={this.state}
                         tabIndex="3"
                     >
-                        <h1>Tab 3</h1>
+                        <Timer />
                     </TabBody>
                     <TabBody
                         pState={this.state}
                         tabIndex="4"
                     >
-                        <h1>Tab 4</h1>
+                        <Stopwatch />
                     </TabBody>
 
 
